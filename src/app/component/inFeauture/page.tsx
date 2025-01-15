@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../button/page";
+import Button from "@/app/component/button/page";
 
 const inFeauture = () => {
   return (
