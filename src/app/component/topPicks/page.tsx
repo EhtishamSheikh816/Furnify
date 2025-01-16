@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../button/page";
 
 const Toppicks = () => {
   return (
-    <div className="pt-8">
+    <div className="pt-8 bg-white">
       <div className="flex flex-col justify-center text-center">
         <h3 className="font-medium text-4xl mb-3">Top Picks For You</h3>
         <p className="font-medium text-base text-[#9f9f9f] px-2">
@@ -40,7 +39,9 @@ const Toppicks = () => {
         </div>
       </div>
       <div className="flex justify-center my-14">
-        <Button text="View More" />
+        <button className="font-medium text-lg md:text-xl border-b-2 border-[#000000]">
+          View More
+        </button>
       </div>
     </div>
   );

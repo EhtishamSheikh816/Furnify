@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Button from "@/app/component/button/page";
 
 const inFeauture = () => {
   return (
@@ -14,10 +13,9 @@ const inFeauture = () => {
           className="w-full md:w-auto justify-center items-center flex"
         />
         <h1 className="font-medium text-2xl md:text-4xl mb-3">Side table</h1>
-        <Button
-          text="Shop Now"
-          className="font-medium text-lg md:text-xl border-b-2 border-[#000000] mt-4 md:mt-0"
-        />
+        <button className="font-medium text-lg md:text-xl border-b-2 border-[#000000]">
+          Read More
+        </button>
       </div>
       <div className="flex w-full md:w-2/4 flex-col items-center md:items-start mb-8 md:mb-0">
         <Image
@@ -28,10 +26,9 @@ const inFeauture = () => {
           className="w-full md:w-auto justify-center items-center flex md:mt-8"
         />
         <h1 className="font-medium text-2xl md:text-4xl mb-3">Side table</h1>
-        <Button
-          text="Shop Now"
-          className="font-medium text-lg md:text-xl border-b-2 border-[#000000] mt-4 md:mt-0"
-        />
+        <button className="font-medium text-lg md:text-xl border-b-2 border-[#000000]">
+          Read More
+        </button>
       </div>
     </div>
   );
