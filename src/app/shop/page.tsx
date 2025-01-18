@@ -8,6 +8,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -27,6 +28,8 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
   style: ["italic", "normal"],
 });
+
+<BreadcrumbEllipsis />;
 
 const Shop = () => {
   return (
