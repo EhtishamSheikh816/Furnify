@@ -118,7 +118,7 @@ const Shop = () => {
         </div>
       </div>
 
-      {/* THINGS */}
+      {/* SHOP THINGS */}
       <div className="px-10">
         <div className="flex flex-col md:flex-row justify-between mt-5">
           <div className="flex flex-col items-center md:text-left md:w-1/4 md:justify-end">
