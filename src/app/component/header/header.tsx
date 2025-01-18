@@ -10,7 +10,7 @@ const Header = () => {
       <div className="md:flex justify-end w-3/5 hidden ">
         <ul className="flex justify-end gap-16 font-medium text-base text-[#000000]">
           <li>
-            <Link href="" className="hover:text-gray-900">
+            <Link href="/" className="hover:text-gray-900">
               Home
             </Link>
           </li>
