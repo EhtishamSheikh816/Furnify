@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-white py-8 border-t border-gray-200">
-      <div className="container mx-auto px-4 md:px-12">
+      <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Address */}
           <div className="text-gray-600 text-sm">
@@ -86,15 +86,19 @@ const Footer = () => {
             <h3 className="text-gray-500 text-sm font-medium mb-3">
               Newsletter
             </h3>
-            <div className="flex items-center">
-              <input
-                type="email"
-                placeholder="Enter Your Email Address"
-                className="flex-1 px-1 py-2 border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-gray-400"
-              />
-              <button className="bg-black text-white px-4 py-2 rounded-r-md hover:bg-gray-800 transition">
-                Subscribe
-              </button>
+            <div className="flex items-center flex-row md:flex-col lg:flex-grow">
+              <div className="">
+                <input
+                  type="email"
+                  placeholder="Enter Your Email Address"
+                  className="flex-1 py-2 border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-gray-400 "
+                />
+              </div>
+              <div>
+                <button className="bg-black text-white px-4 py-2 rounded-r-md hover:bg-gray-800 transition">
+                  Subscribe
+                </button>
+              </div>
             </div>
           </div>
         </div>
