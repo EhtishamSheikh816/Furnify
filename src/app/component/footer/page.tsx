@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -16,36 +17,36 @@ const Footer = () => {
             <h3 className="text-gray-500 text-sm font-medium mb-3">Links</h3>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/shop"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Shop
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -55,28 +56,28 @@ const Footer = () => {
             <h3 className="text-gray-500 text-sm font-medium mb-3">Help</h3>
             <ul>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Payment Options
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Return
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-gray-800 hover:text-gray-900 transition"
                 >
                   Privacy Policies
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

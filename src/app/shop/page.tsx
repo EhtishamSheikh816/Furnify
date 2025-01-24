@@ -3,7 +3,6 @@ import Image from "next/image";
 import { CiSliderHorizontal } from "react-icons/ci";
 import { IoGrid } from "react-icons/io5";
 import { MdViewDay } from "react-icons/md";
-import Link from "next/link";
 import ShopProducts from "../component/shopProducts/page";
 import {
   Breadcrumb,
