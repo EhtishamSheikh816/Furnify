@@ -42,7 +42,7 @@ const FourProduct = async () => {
             alt={product.name}
             width={200}
             height={200}
-            className="m-auto"
+            className="m-auto w-full"
           />
           <p className="font-semibold text-gray-600 mb-2">
             {product.description}
