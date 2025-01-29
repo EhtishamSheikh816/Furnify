@@ -21,7 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.471.1",
-    "next": "15.1.4",
+    "next": "^15.1.6",
     "next-sanity": "^9.8.40",
     "node-fetch": "^3.3.2",
     "react": "^19.0.0",

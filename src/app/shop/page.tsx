@@ -22,7 +22,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],

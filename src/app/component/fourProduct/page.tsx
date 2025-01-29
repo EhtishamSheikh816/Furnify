@@ -1,6 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { fourProduct } from "@/sanity/lib/querries";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
+
 import Image from "next/image";
 import React from "react";
 const poppins = Poppins({
