@@ -22,7 +22,8 @@ interface Product {
 }
 
 const FourProduct = async () => {
-  const products: Product[] = await sanityFetch({ querry: fourProduct });
+  const products: Product[] = await sanityFetch({ query: fourProduct });
+
   console.log(products);
 
   return (
