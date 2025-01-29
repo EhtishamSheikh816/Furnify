@@ -1,7 +1,6 @@
 import { createClient } from "next-sanity";
-import { client } from "./client";
 
-const clent = createClient({
+const client = createClient({
   projectId: "anh862vo",
   dataset: "production",
   apiVersion: "2022-03-01",
@@ -11,11 +10,11 @@ const clent = createClient({
 });
 
 export async function sanityFetch({
-  querry,
+  query,
   params = {},
 }: {
-  querry: string;
-  params?: any;
+  query: string;
+  params?: Record<string, unknown>;
 }) {
-  return await client.fetch(querry, params);
+  return await client.fetch(query, params);
 }
