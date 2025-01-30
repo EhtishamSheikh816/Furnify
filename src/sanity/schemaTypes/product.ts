@@ -9,6 +9,14 @@ const productSchema = {
       title: "Name",
     },
     {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "name",
+      },
+    },
+    {
       name: "image",
       type: "image",
       title: "Image",

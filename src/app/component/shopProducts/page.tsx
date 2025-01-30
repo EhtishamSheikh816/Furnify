@@ -1,66 +1,50 @@
-import { sanityFetch } from "@/sanity/lib/fetch";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { Product } from "../../../../types/product";
+import { client } from "@/sanity/lib/client";
 import { allProduct } from "@/sanity/lib/querries";
-import { Poppins } from "next/font/google";
 import Image from "next/image";
-import React from "react";
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["italic", "normal"],
-});
+import { urlFor } from "@/sanity/lib/image";
 
-interface Product {
-  _type: string;
-  name: string;
-  imagePath: string;
-  stockLevel: number;
-  category: string;
-  _id: number;
-  price: number;
-  description: string;
-  isFeaturedProduct: boolean;
-}
+const ShopProducts = () => {
+  const [product, setProduct] = useState<Product[]>([]);
 
-const ShopProducts = async () => {
-  const products: Product[] = await sanityFetch({ query: allProduct });
-  console.log(products);
+  useEffect(() => {
+    async function fetchProduct() {
+      const fetchedProduct: Product[] = await client.fetch(allProduct);
+      setProduct(fetchedProduct);
+    }
+    fetchProduct();
+  }, []);
 
   return (
-    <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 ${poppins.className}`}
-    >
-      {products.map((product) => (
-        <div
-          className="flex flex-col px-2 py-2 shadow-md shadow-slate-600 md:justify-end"
-          key={product._id}
-        >
-          <h2 className="text-2xl text-gray-600 font-bold mb-2">
-            {product.name}
-          </h2>
-          <Image
-            src={product.imagePath}
-            alt={product.name}
-            width={200}
-            height={200}
-            className="m-auto"
-          />
-          <p className="font-semibold text-gray-600 mb-2">
-            {product.description}
-          </p>
-          <p className="text-lg font-bold text-red-600">
-            Price: ${product.price}
-          </p>
-          <p className="text-lg text-gray-600">Category: {product.category}</p>
-          <p className="text-lg text-gray-600">
-            Stock Level: {product.stockLevel}
-          </p>
-          <p
-            className={`text-lg text-gray-600 ${product.isFeaturedProduct ? "text-red-600" : "text-gray-600"}`}
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        Our Latest Furniture
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {product.map((product) => (
+          <div
+            key={product._id}
+            className="border rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300"
           >
-            Featured: {product.isFeaturedProduct ? "Yes" : "No"}
-          </p>
-        </div>
-      ))}
+            {product.image && (
+              <Image
+                src={urlFor(product.image).url()}
+                alt={product.name}
+                width={200}
+                height={200}
+                className="w-full h-48 object-cover rounded-md"
+              />
+            )}
+            <h2 className="text-lg font-semibold mt-4">{product.name} </h2>
+            <p className="text-gray-500 mt-2">
+              {product.price ? `$${product.price}` : "Price not available"}{" "}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
