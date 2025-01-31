@@ -8,7 +8,6 @@ import {
   updateCartQuantity,
 } from "../actions/action";
 import Swal from "sweetalert2";
-import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 
