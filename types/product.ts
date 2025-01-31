@@ -7,10 +7,11 @@ export interface Product {
       _type: "image";
     };
   };
-  price: "number";
+  price: number;
   description?: "string";
   slug: {
     _type: "slug";
     current: "string";
   };
+  stockLevel: number;
 }

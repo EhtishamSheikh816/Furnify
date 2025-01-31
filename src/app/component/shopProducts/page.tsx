@@ -5,7 +5,10 @@ import { Product } from "../../../../types/product";
 import { client } from "@/sanity/lib/client";
 import { allProduct } from "@/sanity/lib/querries";
 import Image from "next/image";
+import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
+import { addToCart } from "@/app/actions/action";
+import Swal from "sweetalert2";
 
 const ShopProducts = () => {
   const [product, setProduct] = useState<Product[]>([]);
@@ -18,6 +21,18 @@ const ShopProducts = () => {
     fetchProduct();
   }, []);
 
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "top-right",
+      icon: "success",
+      title: `${product.name} added to cart`,
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    addToCart(product);
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 text-center">
@@ -29,19 +44,27 @@ const ShopProducts = () => {
             key={product._id}
             className="border rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300"
           >
-            {product.image && (
-              <Image
-                src={urlFor(product.image).url()}
-                alt={product.name}
-                width={200}
-                height={200}
-                className="w-full h-48 object-cover rounded-md"
-              />
-            )}
-            <h2 className="text-lg font-semibold mt-4">{product.name} </h2>
-            <p className="text-gray-500 mt-2">
-              {product.price ? `$${product.price}` : "Price not available"}{" "}
-            </p>
+            <Link href={`/product/${product.slug.current}`}>
+              {product.image && (
+                <Image
+                  src={urlFor(product.image).url()}
+                  alt={product.name}
+                  width={200}
+                  height={200}
+                  className="w-full h-48 object-cover rounded-md"
+                />
+              )}
+              <h2 className="text-lg font-semibold mt-4">{product.name} </h2>
+              <p className="text-gray-500 my-1">
+                {product.price ? `$${product.price}` : "Price not available"}{" "}
+              </p>
+              <button
+                className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-500 ease-in-out"
+                onClick={(e) => handleAddToCart(e, product)}
+              >
+                Add to Cart
+              </button>
+            </Link>
           </div>
         ))}
       </div>

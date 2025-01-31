@@ -107,7 +107,7 @@ const Header = () => {
         <Link href="">
           <CiHeart />
         </Link>
-        <Link href="">
+        <Link href="/cart">
           <AiOutlineShoppingCart />
         </Link>
       </div>
