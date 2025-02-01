@@ -10,6 +10,7 @@ import {
 import Swal from "sweetalert2";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -89,7 +90,17 @@ const Cart = () => {
         Shopping Cart
       </h1>
       {cartItems.length === 0 ? (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
+        <div className="text-center h-[50vh]">
+          <h2 className="text-center text-2xl font-semibold mt-6 mb-4 text-gray-500">
+            Your cart is empty.
+          </h2>
+          <Link
+            href={"/shop"}
+            className="text-[#ddaa2f] font-normal text-lg text-center m-auto"
+          >
+            Continue Shopping
+          </Link>
+        </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">

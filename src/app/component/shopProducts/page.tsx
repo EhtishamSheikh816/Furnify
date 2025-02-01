@@ -59,7 +59,7 @@ const ShopProducts = () => {
                 {product.price ? `$${product.price}` : "Price not available"}{" "}
               </p>
               <button
-                className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-500 ease-in-out"
+                className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold w-full mt-2 py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-500 ease-in-out"
                 onClick={(e) => handleAddToCart(e, product)}
               >
                 Add to Cart
