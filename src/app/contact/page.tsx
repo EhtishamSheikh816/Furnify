@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <div>
       {/* BANNER SECTION */}
-      <div className="pt-24 pb-24 relative flex justify-center items-center text-center">
+      <div className="pt-20 pb-24 relative flex justify-center items-center text-center">
         <div className="absolute inset-0">
           <Image
             src="/images/layoutImg.svg"

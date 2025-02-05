@@ -12,7 +12,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
 import {
   Pagination,
   PaginationContent,
@@ -34,7 +33,7 @@ const Shop = () => {
   return (
     <div className={poppins.className}>
       {/* BANNER SECTION */}
-      <div className="pt-24 pb-24 relative flex justify-center items-center text-center">
+      <div className="pt-20 pb-24 relative flex justify-center items-center text-center">
         <div className="absolute inset-0">
           <Image
             src="/images/layoutImg.svg"
