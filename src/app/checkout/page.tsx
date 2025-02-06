@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import HeadLine from "../component/headLine/page";
 import Swal from "sweetalert2";
-import order from "@/sanity/schemaTypes/order";
 import { client } from "@/sanity/lib/client";
 
 const CheckOut = () => {
