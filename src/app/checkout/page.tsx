@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import HeadLine from "../component/headLine/page";
+import Swal from "sweetalert2";
+import order from "@/sanity/schemaTypes/order";
+import { client } from "@/sanity/lib/client";
 
 const CheckOut = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -46,7 +49,7 @@ const CheckOut = () => {
     }
   }, []);
 
-  const subTotal = cartItems.reduce(
+  const total = cartItems.reduce(
     (total, item) => total + item.price * item.stockLevel,
     0
   );
@@ -71,9 +74,56 @@ const CheckOut = () => {
     return Object.values(errors).every((error) => !error);
   };
 
-  const handlePlaceOrder = () => {
-    if (validationForm()) {
+  const handlePlaceOrder = async () => {
+    Swal.fire({
+      title: "Processing your order...",
+      text: "Please wait a moment.",
+      icon: "info",
+      showCancelButton: false,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Proceed",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (validationForm()) {
+          localStorage.removeItem("appliedDiscount");
+          Swal.fire(
+            "Success",
+            "Your order has been successfully placed",
+            "success"
+          );
+        } else {
+          Swal.fire(
+            "Error!",
+            "Please fill in all the fields before preceeding.",
+            "error"
+          );
+        }
+      }
+    });
+
+    const orderData = {
+      _type: "order",
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
+      address: formValues.address,
+      city: formValues.city,
+      zipCode: formValues.zipCode,
+      phone: formValues.phone,
+      email: formValues.email,
+      cartItems: cartItems.map((item) => ({
+        _type: "reference",
+        _ref: item._id,
+      })),
+      total: total,
+      discount: discount,
+      orderDate: new Date().toISOString,
+    };
+    try {
+      await client.create(orderData);
       localStorage.removeItem("appliedDiscount");
+    } catch (error) {
+      console.error("error creating order", error);
     }
   };
 
@@ -152,14 +202,14 @@ const CheckOut = () => {
               <div className="text-right pt-4">
                 <p className="text-sm">
                   SubTotal:
-                  <span className="font-medium">${subTotal}</span>
+                  <span className="font-medium">${total}</span>
                 </p>
                 <p className="text-sm">
                   Discount:
                   <span className="font-medium">${discount}</span>
                 </p>
                 <p className="text-lg font-semibold">
-                  Total : ${subTotal.toFixed(2)}
+                  Total : ${total.toFixed(2)}
                 </p>
               </div>
             </div>
