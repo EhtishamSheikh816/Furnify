@@ -52,7 +52,7 @@ const Header = () => {
           </li>
           <li>
             <Link href="" className="hover:text-[#B88E2F]">
-              About
+              Blog
             </Link>
           </li>
           <li>
